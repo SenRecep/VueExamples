@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 1) Butona tıklayarak <p> elementleri arasında bir Toggle İşlevi yapın. Hem v-if hem de v-show syntax'larını kullanarak bu işlemi gerçekleştiriniz. Aralarındaki farkı Öğeyi İncele diyerek bu iki syntax farkını gözlemleyiniz -->
+        <div>
+            <button @click="isShow=!isShow">Toggle</button>
+            <p v-if="isShow">Beni Görebiliyor musun?</p>
+            <p v-else>Ya da beni görebiliyor musun?</p>
+
+            <p v-show="isShow">Beni Görebiliyor musun?</p>
+            <p v-show="!isShow">Ya da beni görebiliyor musun?</p>
+        </div>
+        <!-- 2) Array kullanarak bir <ul> listesi oluşturunuz. Liste içerisinde hem Array'deki verinin değerini hem de index numarasını her bir elementin içerisine yazdırınız  -->
+        <ul>
+            <li v-for="(value,index) in array">{{index}}) {{value}}</li>
+        </ul>
+        <!-- 3) Yan taraftaki objenin tüm key ve value verilerini yazdırınız: customObject: {title: 'Game of Thrones',author: 'George R.R',books: '7'}. Ayrıca tüm elementlerin index numarasını da yazdırınız. -->
+        <ul>
+            <li v-for="(value,key,index) in customObject">
+                index: {{index}}
+                {{key}} : {{value}}
+            </li>
+        </ul>
+        <!-- 4) Yan taraftaki objenin tüm value değerlerini yazdırınız. Ayrıca iç içe bir loop daha kurarak Array içerisindeki verileri de yazdırınız : { name: 'NesnedLoop', id: 19,data: [4.3, 2.67, 10.42, 1402] } (ipucu: v-for ve v-if Directive'lerinin beraber kullanımı bunu başarmanızı sağlayacaktır.) -->
+        <ul>
+            <li v-for="(value,key,index) in testData">
+                index: {{index}}
+                {{key}} : 
+                <span v-if="key=='data'" >
+                    <span v-for="num in value">{{num}} </span>
+                </span>
+                <span v-else>
+                    {{value}}
+                </span>
+            </li>
+        </ul>
+    </div>
+
+
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            isShow:true,
+            array: ['Gökhan', 'Defne', 'Berk', 'Özge'],
+            customObject: {
+                title: 'Game of Thrones',
+                author: 'George R.R',
+                books: '7'
+            },
+            testData: {
+                name: 'TESTOBJECT',
+                id: 10,
+                data: [1.67, 1.33, 0.98, 2.21]
+            }
+        }
+    });
+
+</script>
+
+</html>

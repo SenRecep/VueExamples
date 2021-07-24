@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app" >
+        <button v-on:click="showAlert">show Alert</button>
+        <p>keydown: <input v-on:keydown="txtUpdate" type="text"> </p>
+        <p>enter: <input v-on:keydown.enter="txtUpdate" type="text"> </p>
+        <p>{{value}}</p>
+    </div>
+
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            value:""
+        },
+        methods: {
+            showAlert:function(){
+                alert("Show Alert");
+            },
+            txtUpdate:function(e){
+                this.value=e.target.value;
+            }
+
+        }
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app" v-on:mousemove="updateCoords(2,$event)">
+      <button v-on:click="counter++">++</button>
+      <button v-on:click="counter--">--</button>
+      <p v-on:mousemove.stop>{{counter}}</p>
+      <p>x : {{x}}</p>
+      <p>y : {{y}}</p>
+    </div>
+
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+          counter:0,
+          x:0,
+          y:0,
+        },
+        methods: {
+            updateCoords:function(step,e){
+                this.counter+=step;
+                this.x=e.clientX;
+                this.y=e.clientY;
+            }
+        }
+    });
+
+</script>
+
+</html>
