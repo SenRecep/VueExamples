@@ -152,7 +152,7 @@ export default {
   opacity: 0;
 }
 
-.fade-enter {
+.slide-enter {
   opacity: 0;
 }
 
