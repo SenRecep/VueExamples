@@ -1,0 +1,14 @@
+{
+    "name": "vuejs-tag-component-example-senrecep",
+    "description": "Tag component example",
+    "version": "1.0.1",
+    "main": "Tags.vue",
+    "author": "recep <67recepsen67@gmail.com>",
+    "license": "ISC",
+    "keywords": [
+        "vuejs,senrecep,daniga,vue.js,tag component"
+    ],
+    "scripts": {
+        "test": "echo \"Error\""
+    }
+}
